@@ -1,0 +1,15 @@
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/ContentView.swift":
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/ContentView.o"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/ContentView.swiftdeps"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/ContentView.dia"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/ContentView.d"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Components/CircleButton/CircleButtonAnimationView.swift":
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonAnimationView.d"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonAnimationView.swiftdeps"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonAnimationView.dia"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonAnimationView.o"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Home/Views/CoinRowView.swift":
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinRowView.d"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinRowView.dia"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinRowView.swiftdeps"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinRowView.o"

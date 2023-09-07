@@ -1,0 +1,28 @@
+{
+  "source": "/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Home/Views/HomeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Portfolio"
+      },
+      {
+        "comment": "",
+        "key": "Live Prices"
+      },
+      {
+        "comment": "",
+        "key": "Coin"
+      },
+      {
+        "comment": "",
+        "key": "Holdings"
+      },
+      {
+        "comment": "",
+        "key": "Price"
+      }
+    ]
+  },
+  "version": 1
+}

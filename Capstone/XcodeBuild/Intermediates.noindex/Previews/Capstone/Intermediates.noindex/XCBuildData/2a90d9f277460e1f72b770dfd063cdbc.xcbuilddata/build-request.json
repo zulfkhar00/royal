@@ -1,0 +1,55 @@
+{
+  "buildCommand" : {
+    "command" : "preview"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "daa6f378bc895bd8a59e7c9a87865e5e892a3fb85a1112dfb0a609a4cafa3074"
+    }
+  ],
+  "containerPath" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator16.4",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex",
+      "buildProductsPath" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Products",
+      "derivedDataPath" : "/Users/zulfkhar/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/zulfkhar/Library/Developer/Xcode/DerivedData/Capstone-epcpvkslzcdjcbeewaznscnmsabe/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/zulfkhar/Library/Developer/Xcode/DerivedData/Capstone-epcpvkslzcdjcbeewaznscnmsabe/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "DSTROOT" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/ReleaseProducts",
+          "ENABLE_PREVIEWS" : "YES",
+          "OBJROOT" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex",
+          "SYMROOT" : "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Products"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

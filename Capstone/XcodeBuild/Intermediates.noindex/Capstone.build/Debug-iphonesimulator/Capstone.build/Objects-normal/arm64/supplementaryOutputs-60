@@ -1,0 +1,15 @@
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Extensions/UIApplication.swift":
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/UIApplication.d"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/UIApplication.dia"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/UIApplication.swiftdeps"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/UIApplication.o"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Home/ViewModels/HomeViewModel.swift":
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeViewModel.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeViewModel.d"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeViewModel.dia"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeViewModel.o"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Components/CoinImage/CoinImageViewModel.swift":
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinImageViewModel.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinImageViewModel.d"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinImageViewModel.dia"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinImageViewModel.o"

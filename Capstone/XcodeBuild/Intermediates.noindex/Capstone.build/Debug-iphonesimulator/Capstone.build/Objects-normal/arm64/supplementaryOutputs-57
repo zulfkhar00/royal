@@ -1,0 +1,15 @@
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Home/Views/HomeView.swift":
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeView.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeView.d"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeView.o"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeView.dia"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/CapstoneApp.swift":
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CapstoneApp.o"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CapstoneApp.swiftdeps"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CapstoneApp.dia"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CapstoneApp.d"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Services/MarketDataService.swift":
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataService.dia"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataService.d"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataService.o"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataService.swiftdeps"

@@ -1,0 +1,24 @@
+{
+  "source": "/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Accent color"
+      },
+      {
+        "comment": "",
+        "key": "Secondary text color"
+      },
+      {
+        "comment": "",
+        "key": "Red color"
+      },
+      {
+        "comment": "",
+        "key": "Green color"
+      }
+    ]
+  },
+  "version": 1
+}

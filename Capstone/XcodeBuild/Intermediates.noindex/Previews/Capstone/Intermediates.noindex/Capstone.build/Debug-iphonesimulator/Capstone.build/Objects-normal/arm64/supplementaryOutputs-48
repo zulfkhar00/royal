@@ -1,0 +1,15 @@
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Models/MarketDataModel.swift":
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataModel.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataModel.d"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataModel.o"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/MarketDataModel.dia"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Services/CoinDataService.swift":
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinDataService.dia"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinDataService.o"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinDataService.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinDataService.d"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Models/StatisticModel.swift":
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticModel.swiftdeps"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticModel.d"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticModel.o"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticModel.dia"

@@ -1,0 +1,15 @@
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Models/CoinModel.swift":
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinModel.dia"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinModel.o"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinModel.d"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CoinModel.swiftdeps"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Components/CircleButton/CircleButtonView.swift":
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonView.d"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonView.dia"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonView.swiftdeps"
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/CircleButtonView.o"
+"/Users/zulfkhar/Desktop/capstone_project/Capstone/Capstone/Core/Components/StatisticView.swift":
+  object: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticView.o"
+  swift-dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticView.swiftdeps"
+  diagnostics: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticView.dia"
+  dependencies: "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/StatisticView.d"

@@ -1,0 +1,28 @@
+{
+  "source": "/Users/zulfkhar/Desktop/capstone_project/Capstone/XcodeBuild/Intermediates.noindex/Previews/Capstone/Intermediates.noindex/Capstone.build/Debug-iphonesimulator/Capstone.build/Objects-normal/arm64/HomeView.1.preview-thunk.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Coin"
+      },
+      {
+        "comment": "",
+        "key": "Holdings"
+      },
+      {
+        "comment": "",
+        "key": "Price"
+      },
+      {
+        "comment": "",
+        "key": "Portfolio"
+      },
+      {
+        "comment": "",
+        "key": "Live Prices"
+      }
+    ]
+  },
+  "version": 1
+}
