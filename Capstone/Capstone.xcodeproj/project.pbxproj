@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130B9A902AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 130B9A8E2AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld */; };
+		130B9A922AAB466C0076DACA /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130B9A912AAB466C0076DACA /* PortfolioDataService.swift */; };
 		131A6D862A6CFBB1002A600E /* CapstoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A6D852A6CFBB1002A600E /* CapstoneApp.swift */; };
 		131A6D882A6CFBB1002A600E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A6D872A6CFBB1002A600E /* ContentView.swift */; };
 		131A6D8D2A6CFBB1002A600E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 131A6D8C2A6CFBB1002A600E /* Preview Assets.xcassets */; };
@@ -36,9 +38,12 @@
 		13CB8C152A6E7B2C004FDC4D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB8C142A6E7B2C004FDC4D /* UIApplication.swift */; };
 		13E848932A8266A2004026E5 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E848922A8266A2004026E5 /* PortfolioView.swift */; };
 		13E848952A826997004026E5 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E848942A826997004026E5 /* XMarkButton.swift */; };
+		13FEEF042AA9F8CB00A23094 /* CoinLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEEF032AA9F8CB00A23094 /* CoinLogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130B9A8F2AAB45BE0076DACA /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		130B9A912AAB466C0076DACA /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		131A6D822A6CFBB1002A600E /* Capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		131A6D852A6CFBB1002A600E /* CapstoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneApp.swift; sourceTree = "<group>"; };
 		131A6D872A6CFBB1002A600E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +74,8 @@
 		13CB8C142A6E7B2C004FDC4D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		13E848922A8266A2004026E5 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
 		13E848942A826997004026E5 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
+		13FEEF032AA9F8CB00A23094 /* CoinLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogoView.swift; sourceTree = "<group>"; };
+		13FEEF052AAAFA5000A23094 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +108,7 @@
 		131A6D842A6CFBB1002A600E /* Capstone */ = {
 			isa = PBXGroup;
 			children = (
+				13FEEF052AAAFA5000A23094 /* Info.plist */,
 				131A6D852A6CFBB1002A600E /* CapstoneApp.swift */,
 				13CB8C0F2A6E6E79004FDC4D /* Utilities */,
 				131A6D952A6CFE5C002A600E /* Extensions */,
@@ -198,6 +206,7 @@
 				131A6DA82A6D13AA002A600E /* CoinModel.swift */,
 				136829BD2A7FBC1B00A57604 /* StatisticModel.swift */,
 				136829C32A7FC42000A57604 /* MarketDataModel.swift */,
+				130B9A8E2AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 				131A6DB52A6D35DF002A600E /* CoinDataService.swift */,
 				134861B82A6E5816009A30C8 /* CoinImageService.swift */,
 				136829C52A7FC75E00A57604 /* MarketDataService.swift */,
+				130B9A912AAB466C0076DACA /* PortfolioDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 			children = (
 				134861B62A6E563C009A30C8 /* CoinImageView.swift */,
 				134861BA2A6E5A4D009A30C8 /* CoinImageViewModel.swift */,
+				13FEEF032AA9F8CB00A23094 /* CoinLogoView.swift */,
 			);
 			path = CoinImage;
 			sourceTree = "<group>";
@@ -306,9 +317,11 @@
 				131A6D9D2A6D0292002A600E /* HomeView.swift in Sources */,
 				131A6D862A6CFBB1002A600E /* CapstoneApp.swift in Sources */,
 				136829C62A7FC75E00A57604 /* MarketDataService.swift in Sources */,
+				13FEEF042AA9F8CB00A23094 /* CoinLogoView.swift in Sources */,
 				136829BE2A7FBC1B00A57604 /* StatisticModel.swift in Sources */,
 				131A6DB62A6D35DF002A600E /* CoinDataService.swift in Sources */,
 				136829C42A7FC42000A57604 /* MarketDataModel.swift in Sources */,
+				130B9A922AAB466C0076DACA /* PortfolioDataService.swift in Sources */,
 				131A6DA92A6D13AA002A600E /* CoinModel.swift in Sources */,
 				131A6DA12A6D045A002A600E /* CircleButtonView.swift in Sources */,
 				136829C02A7FBD2F00A57604 /* StatisticView.swift in Sources */,
@@ -321,6 +334,7 @@
 				13CB8C112A6E6E95004FDC4D /* LocalFileManager.swift in Sources */,
 				13CB8C132A6E75A3004FDC4D /* SearchBarView.swift in Sources */,
 				131A6D972A6CFEA4002A600E /* Color.swift in Sources */,
+				130B9A902AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld in Sources */,
 				134861B72A6E563C009A30C8 /* CoinImageView.swift in Sources */,
 				131A6DB12A6D2739002A600E /* Double.swift in Sources */,
 				131A6DAF2A6D249D002A600E /* PreviewProvider.swift in Sources */,
@@ -458,6 +472,7 @@
 				DEVELOPMENT_TEAM = G8UZ3X8YY4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Capstone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Royaltune;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -492,6 +507,7 @@
 				DEVELOPMENT_TEAM = G8UZ3X8YY4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Capstone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Royaltune;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -537,6 +553,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		130B9A8E2AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				130B9A8F2AAB45BE0076DACA /* PortfolioContainer.xcdatamodel */,
+			);
+			currentVersion = 130B9A8F2AAB45BE0076DACA /* PortfolioContainer.xcdatamodel */;
+			path = PortfolioContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 131A6D7A2A6CFBB1002A600E /* Project object */;
 }
