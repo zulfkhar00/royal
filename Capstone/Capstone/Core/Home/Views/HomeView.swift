@@ -34,8 +34,14 @@ struct HomeView: View {
                     allCoinsList
                         .transition(.move(edge: .leading))
                 } else if showPortfolio {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinsList
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
                 
                 Spacer(minLength: 0)
@@ -114,6 +120,7 @@ extension HomeView {
                     .onTapGesture {
                         segue(with: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(PlainListStyle())
@@ -130,12 +137,22 @@ extension HomeView {
                     .onTapGesture {
                         segue(with: coin)
                     }
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(PlainListStyle())
         .refreshable {
             vm.reloadData()
         }
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("You haven't bought any shares. Click + to buy! 🙄")
+            .font(.callout)
+            .fontWeight(.medium)
+            .foregroundColor(.theme.secondaryText)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private func segue(with coin: CoinModel) {
