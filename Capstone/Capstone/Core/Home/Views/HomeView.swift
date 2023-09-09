@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio = true // animate right
     @State private var showPortfolioView = false // new sheet
-    
+    @State private var showSettingsView = false // new sheet
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
     
@@ -40,6 +40,9 @@ struct HomeView: View {
                 
                 Spacer(minLength: 0)
             }
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView(isPresented: $showSettingsView)
+            }
         }
         .background(
             NavigationLink(
@@ -49,6 +52,9 @@ struct HomeView: View {
                     EmptyView()
                 }
             )
+            .onDisappear {
+                showPortfolio = true
+            }
         )
     }
 }
@@ -71,6 +77,8 @@ extension HomeView {
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
                 .background(
@@ -118,7 +126,7 @@ extension HomeView {
         List {
             ForEach(vm.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingsColumn: true)
-                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {
                         segue(with: coin)
                     }

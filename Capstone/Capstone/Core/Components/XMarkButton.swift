@@ -9,7 +9,6 @@ import SwiftUI
 
 struct XMarkButton: View {
     
-    @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
     
     var body: some View {
