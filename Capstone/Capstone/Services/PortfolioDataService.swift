@@ -47,7 +47,8 @@ class PortfolioDataService {
     private func getPortfolio() {
         let request = NSFetchRequest<PortfolioEntity>(entityName: entityName)
         do {
-            savedEntities = try container.viewContext.fetch(request)
+            let updatedEntities = try container.viewContext.fetch(request)
+            savedEntities = updatedEntities
         } catch let error {
             print("Error fetching Portfolio Entities: \(error)")
         }

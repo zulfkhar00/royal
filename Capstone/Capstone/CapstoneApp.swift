@@ -12,6 +12,7 @@ struct CapstoneApp: App {
 
     @StateObject private var vm = HomeViewModel()
     @State private var showLaunchView: Bool = true
+    @State private var showLoginView: Bool = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
@@ -30,8 +31,13 @@ struct CapstoneApp: App {
                 
                 ZStack {
                     if showLaunchView {
-                        LaunchView(showLaunchView: $showLaunchView)
+                        LaunchView(showLaunchView: $showLaunchView, showLoginView: $showLoginView)
                             .transition(.move(edge: .leading))
+                    }
+                    if showLoginView && !vm.userLoggedIn {
+                        LoginView()
+                            .transition(.move(edge: .trailing))
+                            .environmentObject(vm)
                     }
                 }
                 .zIndex(2.0)

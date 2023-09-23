@@ -27,6 +27,12 @@ struct HomeView: View {
             VStack {
                 headerView
                 HomeStatsView(showPortfolio: $showPortfolio)
+                if showPortfolio {
+                    AccountMoneyView()
+                        .frame(height: 160)
+                        .padding(.horizontal, 25)
+                        .environmentObject(vm)
+                }
                 SearchBarView(searchText: $vm.searchText)
                 columnTitles
                 
@@ -52,7 +58,7 @@ struct HomeView: View {
         }
         .background(
             NavigationLink(
-                destination: DetailLoadingView(coin: $selectedCoin),
+                destination: DetailLoadingView(coin: $selectedCoin).environmentObject(vm),
                 isActive: $showDetailView,
                 label: {
                     EmptyView()

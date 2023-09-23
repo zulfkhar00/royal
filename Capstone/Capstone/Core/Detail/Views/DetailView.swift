@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct DetailLoadingView: View {
-    
+    @EnvironmentObject private var vm: HomeViewModel
     @Binding var coin: CoinModel?
     
     var body: some View {
         ZStack {
             if let coin = coin {
                 DetailView(coin: coin)
+                    .environmentObject(vm)
             }
         }
     }
@@ -23,22 +24,32 @@ struct DetailLoadingView: View {
 
 struct DetailView: View {
     
-    @StateObject private var vm: DetailViewModel
+    @EnvironmentObject private var vm: HomeViewModel
+    @StateObject private var detailVM: DetailViewModel
     @State private var showFullDescription = false
+    @State private var isBuySheetPresented = false
+    @State private var isSellSheetPresented = false
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     private let spacing: CGFloat = 30
+    private var sellDisabled: Bool = true
     
     init(coin: CoinModel) {
-        _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
+        _detailVM = StateObject(wrappedValue: DetailViewModel(coin: coin))
     }
     
     var body: some View {
         ScrollView {
             VStack {
-                ChartView(coin: vm.coin)
+                HStack {
+                    buyButton.padding(.trailing, 5)
+                    sellButton
+                    Spacer()
+                }.padding()
+                
+                ChartView(coin: detailVM.coin)
                     .padding(.vertical)
                 
                 VStack(spacing: 20) {
@@ -55,7 +66,7 @@ struct DetailView: View {
             }
         }
         .background(Color.theme.background.ignoresSafeArea())
-        .navigationTitle(vm.coin.name)
+        .navigationTitle(detailVM.coin.name)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 navigationTrailingItems
@@ -68,11 +79,72 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             DetailView(coin: dev.coin)
+                .environmentObject(HomeViewModel())
         }
     }
 }
 
 extension DetailView {
+    
+    private var buyButton: some View {
+        Button {
+            isBuySheetPresented.toggle()
+        } label: {
+            HStack {
+                Image(systemName: "plus")
+                Text("Buy")
+            }
+            .foregroundColor(.white)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.blue)
+                    .frame(width: 90, height: 45)
+            )
+        }
+        .sheet(isPresented: $isBuySheetPresented) {
+            BuyAndSellView(
+                isBuyAndSellSheetPresented: $isBuySheetPresented,
+                coin: detailVM.coin,
+                operation: .buy
+            )
+            .environmentObject(vm)
+        }
+    }
+    
+    private var sellButton: some View {
+        Button {
+            isSellSheetPresented.toggle()
+        } label: {
+            HStack {
+                Image(systemName: "minus")
+                Text("Sell")
+            }
+            .foregroundColor(.blue.opacity(
+                vm.coinExistsInPortfolio(coin: detailVM.coin) ?
+                1 : 0.5
+            ))
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(
+                        Color.blue.opacity(
+                            vm.coinExistsInPortfolio(coin: detailVM.coin) ?
+                            0.2 : 0.06
+                        )
+                    )
+                    .frame(width: 90, height: 45)
+            )
+        }
+        .disabled(!vm.coinExistsInPortfolio(coin: detailVM.coin))
+        .sheet(isPresented: $isSellSheetPresented) {
+            BuyAndSellView(
+                isBuyAndSellSheetPresented: $isSellSheetPresented,
+                coin: detailVM.coin,
+                operation: .sell
+            )
+        }
+    }
     
     private var overviewTitle: some View {
         Text("Overview")
@@ -92,7 +164,7 @@ extension DetailView {
     
     private var descriptionSection: some View {
         ZStack {
-            if let coinDescription = vm.coinDescription,
+            if let coinDescription = detailVM.coinDescription,
                !coinDescription.isEmpty {
                 VStack(alignment: .leading) {
                     Text(coinDescription)
@@ -122,7 +194,7 @@ extension DetailView {
             alignment: .leading,
             spacing: spacing
         ) {
-            ForEach(vm.overviewStatistics) { stat in
+            ForEach(detailVM.overviewStatistics) { stat in
                 StatisticView(stat: stat)
             }
         }
@@ -134,7 +206,7 @@ extension DetailView {
             alignment: .leading,
             spacing: spacing
         ) {
-            ForEach(vm.additionalStatistics) { stat in
+            ForEach(detailVM.additionalStatistics) { stat in
                 StatisticView(stat: stat)
             }
         }
@@ -142,22 +214,22 @@ extension DetailView {
     
     private var navigationTrailingItems: some View {
         HStack {
-            Text(vm.coin.symbol.uppercased())
+            Text(detailVM.coin.symbol.uppercased())
                 .font(.headline)
                 .foregroundColor(.theme.secondaryText)
-            CoinImageView(coin: vm.coin)
+            CoinImageView(coin: detailVM.coin)
                 .frame(width: 25, height: 25)
         }
     }
     
     private var websiteSection: some View {
         VStack(alignment: .leading, spacing: 20) {
-            if let websiteStr = vm.websiteURL,
+            if let websiteStr = detailVM.websiteURL,
                let url = URL(string: websiteStr) {
                 Link("Website", destination: url)
             }
             
-            if let redditStr = vm.redditURL,
+            if let redditStr = detailVM.redditURL,
                let url = URL(string: redditStr) {
                 Link("Reddit", destination: url)
             }

@@ -15,10 +15,14 @@ class HomeViewModel: ObservableObject {
     @Published var portfolioCoins: [CoinModel] = []
     @Published var searchText: String = ""
     @Published var sortOption: SortOption = .holdings
+    @Published var user: User? = nil
+    @Published var userLoggedIn: Bool = false
+    @Published var walletBalance: Double = 0.0
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
-    private let portfolioDataService = PortfolioDataService()
+//    private let portfolioDataService = PortfolioDataService()
+    private let walletDataService = WalletDataService()
     private var cancellables = Set<AnyCancellable>()
     
     enum SortOption {
@@ -40,28 +44,31 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        // updates portfolioCoins
-        $allCoins
-            .combineLatest(portfolioDataService.$savedEntities)
-            .map(mapAllCoinsToPortfolioCoins)
-            .sink { [weak self] returnedCoins in
-                guard let self = self else { return }
-                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
-            }
-            .store(in: &cancellables)
-        
         // updates market data
         marketDataService.$marketData
             .combineLatest($portfolioCoins)
             .map(mapGlobalMarketData)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] returnedStats in
                 self?.statistics = returnedStats
             }
             .store(in: &cancellables)
-    }
-    
-    func updatePortfolio(coin: CoinModel, amount: Double) {
-        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+        
+        $user
+            .map(mapPortfolioCoinsToAllCoins)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] receivedUser, returnedCoins in
+                guard let updatedUserInfo = receivedUser, let self = self else {
+                    self?.userLoggedIn = false
+                    return
+                }
+                self.userLoggedIn = true
+                self.walletDataService.set(user: updatedUserInfo)
+                self.walletBalance = updatedUserInfo.wallet.balance
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
+            }
+            .store(in: &cancellables)
+        
     }
     
     func reloadData() {
@@ -114,13 +121,16 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
-        allCoins.compactMap { coin -> CoinModel? in
-            guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
-                return nil
+    private func mapPortfolioCoinsToAllCoins(userInfo: User?) -> (User?, [CoinModel]) {
+        return (
+            userInfo,
+            allCoins.compactMap { coin -> CoinModel? in
+                guard let stock = userInfo?.portfolio.stocks.first(where: { $0.id == coin.id }) else {
+                    return nil
+                }
+                return coin.updateHoldings(amount: stock.amount)
             }
-            return coin.updateHoldings(amount: entity.amount)
-        }
+        )
     }
     
     private func mapGlobalMarketData(marketDataModel: MarketDataModel?, portfolioCoins: [CoinModel]) -> [StatisticModel] {
@@ -159,5 +169,87 @@ class HomeViewModel: ObservableObject {
         return stats
     }
     
+    func coinExistsInPortfolio(coin: CoinModel) -> Bool {
+        return portfolioCoins.contains { $0.id == coin.id }
+    }
+    
+    func amountOfCoinInPortfolio(coin: CoinModel) -> Double {
+        guard let foundMusicStock = user?.portfolio.stocks.first(where: { $0.id == coin.id }) else {
+            return 0.0
+        }
+        return foundMusicStock.amount
+    }
+    
+    func payFromWallet(amount: Double) {
+        walletDataService.syncWalletBalance(balance: walletBalance - amount) { updatedUserInfo in
+            self.user = updatedUserInfo
+        }
+    }
+    
+    func addMoneyToWallet(amount: Double) {
+        walletDataService.syncWalletBalance(balance: walletBalance + amount) { updatedUserInfo in
+            self.user = updatedUserInfo
+        }
+    }
+    
+    func addCoinToPortfolio(coin: CoinModel, amount: Double) {
+        var finalAmount: Double = amount
+        if let portfolioCoin = user?.portfolio.stocks.first(where: { $0.id == coin.id }) {
+            finalAmount = portfolioCoin.amount + amount
+        } else {
+            user?.portfolio.stocks.append(MusicStock(id: coin.id, amount: finalAmount))
+        }
+        walletDataService.syncPortfolioCoin(coin: coin, amount: finalAmount) { updatedUserInfo in
+            self.user = updatedUserInfo
+        }
+    }
+    
+    func sellCoinFromPortfolio(coin: CoinModel, amount: Double) {
+        guard var portfolioCoin = user?.portfolio.stocks.first(where: { $0.id == coin.id }) else {
+            return
+        }
+        portfolioCoin.amount -= amount
+        walletDataService.syncPortfolioCoin(coin: coin, amount: portfolioCoin.amount) { updatedUserInfo in
+            self.user = updatedUserInfo
+        }
+    }
+    
+    func portfolioHasSufficient(amount: Double, of coin: CoinModel) -> Bool {
+        return (user?.portfolio.stocks.first(where: { $0.id == coin.id })?.amount ?? 0) >= amount
+    }
+    
+}
+
+// MARK: Registration/Authroization Logic
+extension HomeViewModel {
+    
+    func registerUser(name: String, email: String, password: String) {
+        guard let url = URL(string: "http://localhost:4000/register?name=\(name)&email=\(email)&password=\(password)") else {
+            return
+        }
+        
+        NetworkingManager.download(url: url)
+            .decode(type: User.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] registeredUser in
+                self?.user = registeredUser
+            })
+            .store(in: &cancellables)
+    }
+    
+    func loginUser(email: String, password: String) {
+        guard let url = URL(string: "http://localhost:4000/login?email=\(email)&password=\(password)") else {
+            return
+        }
+        
+        NetworkingManager.download(url: url)
+            .decode(type: User.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] loggedUser in
+                print("loginUser(:) ", loggedUser)
+                self?.user = loggedUser
+            })
+            .store(in: &cancellables)
+    }
     
 }

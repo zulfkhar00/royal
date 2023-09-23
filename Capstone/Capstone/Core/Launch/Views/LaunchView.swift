@@ -16,6 +16,7 @@ struct LaunchView: View {
     @State private var counter: Int = 0
     @State private var loops: Int = 0
     @Binding var showLaunchView: Bool
+    @Binding var showLoginView: Bool
     
     var body: some View {
         ZStack {
@@ -51,8 +52,9 @@ struct LaunchView: View {
                 if counter == lastIndex {
                     counter = 0
                     loops += 1
-                    if loops >= 2 {
+                    if loops >= 1 {
                         showLaunchView = false
+                        showLoginView = true
                     }
                 } else {
                     counter += 1
@@ -64,6 +66,9 @@ struct LaunchView: View {
 
 struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView(showLaunchView: .constant(true))
+        LaunchView(
+            showLaunchView: .constant(true),
+            showLoginView: .constant(false)
+        )
     }
 }

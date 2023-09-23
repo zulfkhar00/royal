@@ -2,7 +2,7 @@
   {
     "id": "bitcoin",
     "symbol": "btc",
-    "name": "Bitcoin",
+    "name": "Song 1",
     "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
     "current_price": 25731,
     "market_cap": 501457090719,
@@ -203,7 +203,7 @@
   {
     "id": "ethereum",
     "symbol": "eth",
-    "name": "Ethereum",
+    "name": "Song 2",
     "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
     "current_price": 1630.45,
     "market_cap": 196066334361,
