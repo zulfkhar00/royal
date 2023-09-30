@@ -24,36 +24,54 @@ struct HomeView: View {
                     PortfolioView(isPresented: $showPortfolioView)
                         .environmentObject(vm)
                 }
-            VStack {
-                headerView
-                HomeStatsView(showPortfolio: $showPortfolio)
-                if showPortfolio {
-                    AccountMoneyView()
+            if let user = vm.user, !user.isArtist {
+                VStack {
+                    headerView
+                    HomeStatsView(showPortfolio: $showPortfolio)
+                    if showPortfolio {
+                        AccountMoneyView()
+                            .frame(height: 160)
+                            .padding(.horizontal, 25)
+                            .environmentObject(vm)
+                    }
+                    SearchBarView(searchText: $vm.searchText)
+                    columnTitles
+                    
+                    if !showPortfolio {
+                        allCoinsList
+                            .transition(.move(edge: .leading))
+                    } else if showPortfolio {
+                        ZStack(alignment: .top) {
+                            if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                                portfolioEmptyText
+                            } else {
+                                portfolioCoinsList
+                            }
+                        }
+                        .transition(.move(edge: .trailing))
+                    }
+                    
+                    Spacer(minLength: 0)
+                }
+                .sheet(isPresented: $showSettingsView) {
+                    SettingsView(isPresented: $showSettingsView)
+                }
+            } else {
+                VStack {
+                    ArtistAccountMoneyView()
                         .frame(height: 160)
                         .padding(.horizontal, 25)
                         .environmentObject(vm)
-                }
-                SearchBarView(searchText: $vm.searchText)
-                columnTitles
-                
-                if !showPortfolio {
-                    allCoinsList
-                        .transition(.move(edge: .leading))
-                } else if showPortfolio {
+                    SearchBarView(searchText: $vm.searchText)
+                    columnTitles
                     ZStack(alignment: .top) {
-                        if vm.portfolioCoins.isEmpty && vm.searchText.isEmpty {
+                        if vm.portfolioCoins.isEmpty {
                             portfolioEmptyText
                         } else {
-                            portfolioCoinsList
+                            allCoinsList
                         }
                     }
-                    .transition(.move(edge: .trailing))
                 }
-                
-                Spacer(minLength: 0)
-            }
-            .sheet(isPresented: $showSettingsView) {
-                SettingsView(isPresented: $showSettingsView)
             }
         }
         .background(
@@ -153,7 +171,7 @@ extension HomeView {
     }
     
     private var portfolioEmptyText: some View {
-        Text("You haven't bought any shares. Click + to buy! 🙄")
+        Text((vm.user?.isArtist ?? true) ? "You haven't bought any shares. Click + to buy! 🙄" : "You haven't posted any shares. Click + to post! 🙄")
             .font(.callout)
             .fontWeight(.medium)
             .foregroundColor(.theme.secondaryText)
@@ -180,7 +198,7 @@ extension HomeView {
                 }
             }
             Spacer()
-            if showPortfolio {
+            if let user = vm.user, !user.isArtist, showPortfolio {
                 HStack(spacing: 4) {
                     Text("Holdings")
                     Image(systemName: "chevron.down")

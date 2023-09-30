@@ -12,8 +12,29 @@ struct User: Codable {
     let name: String
     let email: String
     let password: String
+    let isArtist: Bool
     var wallet: Wallet
     var portfolio: Portfolio
+    var publishedCoins: [PublishedCoin]
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case email
+        case password
+        case isArtist = "is_artist"
+        case wallet
+        case portfolio
+        case publishedCoins = "published_coins"
+    }
+}
+
+struct PublishedCoin: Codable {
+    let coinID: String
+    
+    enum CodingKeys: String, CodingKey {
+        case coinID = "coin_id"
+    }
 }
 
 struct Wallet: Codable {

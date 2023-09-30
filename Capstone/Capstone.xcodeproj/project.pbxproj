@@ -49,6 +49,7 @@
 		13CB8C112A6E6E95004FDC4D /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB8C102A6E6E95004FDC4D /* LocalFileManager.swift */; };
 		13CB8C132A6E75A3004FDC4D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB8C122A6E75A3004FDC4D /* SearchBarView.swift */; };
 		13CB8C152A6E7B2C004FDC4D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB8C142A6E7B2C004FDC4D /* UIApplication.swift */; };
+		13CB9A9A2AC6D619000779A7 /* ArtistAccountMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CB9A992AC6D619000779A7 /* ArtistAccountMoneyView.swift */; };
 		13E848932A8266A2004026E5 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E848922A8266A2004026E5 /* PortfolioView.swift */; };
 		13E848952A826997004026E5 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E848942A826997004026E5 /* XMarkButton.swift */; };
 		13EBF5432AB5D09700EBCF12 /* BuyAndSellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EBF5422AB5D09700EBCF12 /* BuyAndSellView.swift */; };
@@ -101,6 +102,7 @@
 		13CB8C102A6E6E95004FDC4D /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		13CB8C122A6E75A3004FDC4D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		13CB8C142A6E7B2C004FDC4D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		13CB9A992AC6D619000779A7 /* ArtistAccountMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAccountMoneyView.swift; sourceTree = "<group>"; };
 		13E848922A8266A2004026E5 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
 		13E848942A826997004026E5 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
 		13EBF5422AB5D09700EBCF12 /* BuyAndSellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAndSellView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				131A6DAA2A6D231F002A600E /* CoinRowView.swift */,
 				13E848922A8266A2004026E5 /* PortfolioView.swift */,
 				135B41D12AB49C5B0098C432 /* AccountMoneyView.swift */,
+				13CB9A992AC6D619000779A7 /* ArtistAccountMoneyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				130B9A902AAB45BE0076DACA /* PortfolioContainer.xcdatamodeld in Sources */,
 				133967402AAC8CB30034A9DD /* String.swift in Sources */,
 				134861B72A6E563C009A30C8 /* CoinImageView.swift in Sources */,
+				13CB9A9A2AC6D619000779A7 /* ArtistAccountMoneyView.swift in Sources */,
 				131A6DB12A6D2739002A600E /* Double.swift in Sources */,
 				131A6DAF2A6D249D002A600E /* PreviewProvider.swift in Sources */,
 				134861B92A6E5816009A30C8 /* CoinImageService.swift in Sources */,

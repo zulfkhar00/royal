@@ -63,5 +63,27 @@ class WalletDataService {
         }
     }
     
+    func syncPublishSong(coin: CoinModel, receiveUpdatedUserInfo: @escaping (User) -> ()) {
+        guard let user = user else { return }
+        let endpoint = "http://localhost:4000/sync_publish_song"
+        guard let url = URL(string: endpoint) else { return }
+            
+        let requestBody: [String : AnyHashable] = [
+            "user_id": user.id,
+            "data": coin.toDictionary()
+        ]
+        
+        NetworkingManager.post(url: url, requestBody: requestBody) { data in
+            do {
+                let updatedUsedInfo = try JSONDecoder().decode(User.self, from: data)
+                DispatchQueue.main.async {
+                    receiveUpdatedUserInfo(updatedUsedInfo)
+                }
+            } catch let error {
+                print("Error decoding User info when syncPublishSong(coin: CoinModel): \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
 }

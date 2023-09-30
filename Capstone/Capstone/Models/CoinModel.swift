@@ -131,6 +131,39 @@ struct CoinModel: Identifiable, Codable {
         )
     }
     
+    func toDictionary() -> [String: AnyHashable] {
+        return [
+            "id": id,
+            "symbol": symbol,
+            "name": name,
+            "image": image,
+            "current_price": currentPrice,
+            "market_cap": marketCap ?? 0,
+            "market_cap_rank": marketCapRank ?? 0,
+            "fully_diluted_valuation": fullyDilutedValuation ?? 0,
+            "total_volume": totalVolume ?? 0,
+            "high_24h": high24H ?? 0,
+            "low_24h": low24H ?? 0,
+            "price_change_24h": priceChange24H ?? 0,
+            "price_change_percentage_24h": priceChangePercentage24H ?? 0,
+            "market_cap_change_24h": marketCapChange24H ?? 0,
+            "market_cap_change_percentage_24h": marketCapChangePercentage24H ?? 0,
+            "circulating_supply": circulatingSupply ?? 0,
+            "total_supply": totalSupply ?? 0,
+            "max_supply": maxSupply ?? 0,
+            "ath": ath ?? 0,
+            "ath_change_percentage": athChangePercentage ?? 0,
+            "ath_date": athDate ?? "",
+            "atl": atl ?? 0,
+            "atl_change_percentage": atlChangePercentage ?? 0,
+            "atl_date": atlDate ?? "",
+            "last_updated": lastUpdated ?? "",
+            "sparkline_in_7d": sparklineIn7D?.toDictionary(),
+            "price_change_percentage_24h_in_currency": priceChangePercentage24HInCurrency ?? 0,
+            "current_holdings": currentHoldings ?? 0
+        ]
+    }
+    
     var currentHoldingsValue: Double {
         return (currentHoldings ?? 0) * currentPrice
     }
@@ -143,4 +176,10 @@ struct CoinModel: Identifiable, Codable {
 
 struct SparklineIn7D: Codable {
     let price: [Double]?
+    
+    func toDictionary() -> [String: AnyHashable] {
+        return [
+            "price": price ?? []
+        ]
+    }
 }

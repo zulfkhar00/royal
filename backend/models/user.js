@@ -6,6 +6,10 @@ const musicStockSchema = new Schema({
   amount: Number,
 });
 
+const publishedSongSchema = new Schema({
+  coin_id: String,
+});
+
 const portfolioSchema = new Schema({
   stocks: [musicStockSchema],
 });
@@ -38,6 +42,14 @@ const userSchema = new Schema({
   portfolio: {
     type: portfolioSchema,
     required: true,
+  },
+  is_artist: {
+    type: Boolean,
+    required: true,
+  },
+  published_coins: {
+    type: [publishedSongSchema],
+    required: false,
   },
 });
 

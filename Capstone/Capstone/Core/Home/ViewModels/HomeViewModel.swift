@@ -53,7 +53,9 @@ class HomeViewModel: ObservableObject {
                 self?.statistics = returnedStats
             }
             .store(in: &cancellables)
-        
+    }
+    
+    func addRegularUserSubscribtion() {
         $user
             .map(mapPortfolioCoinsToAllCoins)
             .receive(on: DispatchQueue.main)
@@ -68,7 +70,27 @@ class HomeViewModel: ObservableObject {
                 self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
             }
             .store(in: &cancellables)
-        
+    }
+    
+    func addArtistSubscription() {
+        $user
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] receivedUser in
+                guard let updatedUserInfo = receivedUser, let self = self else {
+                    self?.userLoggedIn = false
+                    return
+                }
+                self.userLoggedIn = true
+                self.walletDataService.set(user: updatedUserInfo)
+                self.walletBalance = updatedUserInfo.wallet.balance
+                reloadData()
+                self.portfolioCoins = self.allCoins.filter { coin in
+                    updatedUserInfo.publishedCoins.contains { publishedCoin in
+                        return coin.id == publishedCoin.coinID
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func reloadData() {
@@ -218,13 +240,56 @@ class HomeViewModel: ObservableObject {
         return (user?.portfolio.stocks.first(where: { $0.id == coin.id })?.amount ?? 0) >= amount
     }
     
+    // Artist methods
+    func publishSong() {
+        let newSongCoin = CoinModel(
+            id: UUID().uuidString,
+            symbol: String.randomString(length: 6),
+            name: String.randomString(length: 6),
+            image: "https://picsum.photos/200",
+            currentPrice: 50,
+            marketCap: 0,
+            marketCapRank: 0,
+            fullyDilutedValuation: 0,
+            totalVolume: 0,
+            high24H: 0,
+            low24H: 0,
+            priceChange24H: 0,
+            priceChangePercentage24H: 0,
+            marketCapChange24H: 0,
+            marketCapChangePercentage24H: 0,
+            circulatingSupply: 0,
+            totalSupply: 0,
+            maxSupply: 0,
+            ath: 0,
+            athChangePercentage: 0,
+            athDate: "",
+            atl: 0,
+            atlChangePercentage: 0,
+            atlDate: "",
+            lastUpdated: "",
+            sparklineIn7D: nil,
+            priceChangePercentage24HInCurrency: 0,
+            currentHoldings: nil
+        )
+        walletDataService.syncPublishSong(coin: newSongCoin) { updatedUserInfo in
+            self.user = updatedUserInfo
+        }
+    }
+    
 }
 
 // MARK: Registration/Authroization Logic
 extension HomeViewModel {
     
-    func registerUser(name: String, email: String, password: String) {
-        guard let url = URL(string: "http://localhost:4000/register?name=\(name)&email=\(email)&password=\(password)") else {
+    func registerUser(name: String, email: String, password: String, isArtist: Bool) {
+        if isArtist {
+            addArtistSubscription()
+        } else {
+            addRegularUserSubscribtion()
+        }
+        
+        guard let url = URL(string: "http://localhost:4000/register?name=\(name)&email=\(email)&password=\(password)&is_artist=\(isArtist)") else {
             return
         }
         
@@ -242,11 +307,25 @@ extension HomeViewModel {
             return
         }
         
+//        URLSession.shared.dataTask(with: URLRequest(url: url)) { d, _, e in
+//            guard let data = d, e == nil else {
+//                print("Error or didn't get data")
+//                return
+//            }
+//
+//            print(String(data: data, encoding: .utf8))
+//        }.resume()
+        
         NetworkingManager.download(url: url)
             .decode(type: User.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] loggedUser in
                 print("loginUser(:) ", loggedUser)
+                if loggedUser.isArtist {
+                    self?.addArtistSubscription()
+                } else {
+                    self?.addRegularUserSubscribtion()
+                }
                 self?.user = loggedUser
             })
             .store(in: &cancellables)

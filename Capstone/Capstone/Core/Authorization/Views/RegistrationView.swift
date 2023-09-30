@@ -13,6 +13,7 @@ struct RegistrationView: View {
     @State private var name = ""
     @State private var email = ""
     @State private var password = ""
+    @State private var isArtist = false
     
     var body: some View {
         ZStack {
@@ -28,7 +29,7 @@ struct RegistrationView: View {
     }
     
     private func register() {
-        vm.registerUser(name: name, email: email, password: password)
+        vm.registerUser(name: name, email: email, password: password, isArtist: isArtist)
     }
 }
 
@@ -65,6 +66,9 @@ extension RegistrationView {
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
+            
+            Toggle("I am an artist 🎵", isOn: $isArtist)
+                .frame(width: 250, height: 50)
             
             Button("Sign up") {
                 register()
