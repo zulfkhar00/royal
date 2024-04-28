@@ -7,6 +7,38 @@ const { v4: uuidv4 } = require("uuid");
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const Coin = require("./models/coin");
+// const { blockchain } = require("./scripts/deploy");
+const { ethers, run, network } = require("hardhat");
+const { exec } = require("child_process");
+
+// Specify the path to your .env file
+const envFilePath = ".env";
+
+// Function to modify a key-value pair in the .env file
+function modifyEnvVariable(key, value) {
+  // Read the current content of the .env file
+  const envContent = fs.readFileSync(envFilePath, "utf8");
+
+  // Split the content into lines and find the line with the key to modify
+  const lines = envContent.split("\n");
+  let modified = false;
+  const updatedLines = lines.map((line) => {
+    if (line.startsWith(key + "=")) {
+      modified = true;
+      return `${key}=${value}`;
+    }
+    return line;
+  });
+
+  // If the key was not found, add it to the end of the file
+  if (!modified) {
+    updatedLines.push(`${key}=${value}`);
+  }
+
+  // Join the lines back together and write the updated content to the .env file
+  const updatedContent = updatedLines.join("\n");
+  fs.writeFileSync(envFilePath, updatedContent);
+}
 
 // connect to mongodb
 const dbURI =
@@ -48,6 +80,17 @@ app.get("/coin_data_service", cors(), async (req, res) => {
 
 app.get("/register", cors(), async (req, res) => {
   const { name, email, password, is_artist } = req.query;
+
+  modifyEnvVariable("REGISTER_DATA", `${name},${email}`);
+  exec(
+    "npx hardhat run scripts/register.js --network localhost",
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`Error: ${error.message}`);
+        return;
+      }
+    }
+  );
 
   const user = new User({
     id: uuidv4(),
@@ -102,6 +145,18 @@ app.get("/login", cors(), async (req, res) => {
 
 app.post("/sync_wallet_balance", cors(), async (req, res) => {
   const { user_id, balance } = req.body;
+
+  modifyEnvVariable("WALLET_BALANCE_DATA", `${user_id},${balance}`);
+  exec(
+    "npx hardhat run scripts/sync_wallet_balance.js --network localhost",
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`Error: ${error.message}`);
+        return;
+      }
+    }
+  );
+
   let user = User.findOne({ id: user_id });
 
   user.then((foundUser) => {
@@ -117,6 +172,17 @@ app.post("/sync_wallet_balance", cors(), async (req, res) => {
 
 app.post("/sync_coin", cors(), async (req, res) => {
   const { user_id, music_coin_id, amount } = req.body;
+
+  modifyEnvVariable("SYNC_COIN_DATA", `${user_id},${music_coin_id},${amount}`);
+  exec(
+    "npx hardhat run scripts/sync_coin.js --network localhost",
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`Error: ${error.message}`);
+        return;
+      }
+    }
+  );
 
   let user = User.findOne({ id: user_id });
   user.then((result) => {
@@ -139,6 +205,17 @@ app.post("/sync_coin", cors(), async (req, res) => {
 
 app.post("/sync_publish_song", cors(), async (req, res) => {
   const { user_id, data } = req.body;
+
+  modifyEnvVariable("PUBLISH_SONG_DATA", `${user_id},${data.id}`);
+  exec(
+    "npx hardhat run scripts/publish_song.js --network localhost",
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`Error: ${error.message}`);
+        return;
+      }
+    }
+  );
 
   console.log("I got: ", req.body);
 
